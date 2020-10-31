@@ -24,9 +24,17 @@ def loadSelect():
     if request.method == 'GET':
         return render_template("select.html")
     if request.method == 'POST':
+        dic = {"op1": "Algorithm", "op2": "Scheduling", "op3": "Social Media Management", "op4": "Research", "op5": "C",
+               "op6": "HTML", "op7": "CSS", "op8": "Kubernetes and Docker", "op9": "Java", "op10": "Reinforcement Learning"}
+
         returnedArr = request.get_json()
         print(returnedArr['selection1'],
               returnedArr['selection2'], returnedArr['selection3'])
+        a = dic[returnedArr['selection1']]
+        b = dic[returnedArr['selection2']]
+        c = dic[returnedArr['selection3']]
+        print(a, b, c)
+
         return redirect('/dispList', code=302)
 
 
