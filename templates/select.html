@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<title>Select the Courses</title>
+<head>
+    Select the Courses you are familiar with
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+<script type="text/javascript">
+    function selectedCoursePass()
+    {
+        var sel1=document.getElementById("c1");
+        var sel2=document.getElementById("c2");
+        var sel3=document.getElementById("c3");
+         
+
+        $.ajax({
+            type:"POST",
+            url:"/select",
+            data:JSON.stringify(
+                {selection1: sel1.value,
+                selection2: sel2.value,
+                selection3: sel3.value,}
+            ),
+            contentType:"application/json",
+            success: function(data)
+            {
+                console.log(data)
+            },
+
+
+        })
+    }
+</script>
+<div>
+
+    <body>
+        <label for="course1">Choose a language or a skill you are familiar with</label>
+        <select id=c1 name=course1>
+            <option value="op1">Option1</option>
+            <option value="op2">Option2</option>
+            <option value="op3">Option3</option>
+            <option value="op4">Option4</option>
+        </select>
+        <br>
+        <label for="course2">Choose a language or a skill you are familiar with</label>
+        <select id=c2 name=course2>
+            <option value="op1">Option1</option>
+            <option value="op2">Option2</option>
+            <option value="op3">Option3</option>
+            <option value="op4">Option4</option>
+        </select>
+        <br>
+        <label for="course3">Choose a language or a skill you are familiar with</label>
+        <select id=c3 name=course3>
+            <option value="op1">Option1</option>
+            <option value="op2">Option2</option>
+            <option value="op3">Option3</option>
+            <option value="op4">Option4</option>
+        </select>
+        <br>
+        <button onclick="selectedCoursePass()">Hit</button>
+    </div>
+    </body>
