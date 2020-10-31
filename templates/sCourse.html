@@ -1,0 +1,92 @@
+<!doctype html>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        function loadCourse()
+        {
+        console.log("hello loadCourse() called")
+        var arr=[];
+        $.ajax({
+          type: "GET",
+          url: "/selList",    
+          success: function (jsonData)
+          {
+            var container = document.getElementById("container");
+            var data = JSON.parse(jsonData);
+            console.log(data.arrPassed);
+            document.getElementById("hello").innerHTML = "Hello " + data.name;
+            
+                for(var i=0;i<data.arrPassed.length;i++)
+                {
+                
+
+                var button = document.createElement('button');
+                button.type = 'button';
+                button.value=i;
+                button.innerHTML=data.arrPassed[i];
+                // var inpname=data.arrPassed[j];
+                button.onclick=function (){
+                    var inpname = data.arrPassed;
+                    arr.push(inpname);
+                    // break;
+                  };
+                button.classList=["arrPassed"];
+                container.appendChild(button);
+                var lineBreak = document.createElement("br");
+                container.appendChild(lineBreak);
+                }
+                
+                
+                
+            console.log(arr);
+                
+            }
+
+
+          
+          
+        });
+        }
+    
+    // function getCourseVal()
+    // {
+    //     var val=document.getElementsByClassName("arrPassed")
+    //     console.log(val);
+    //     var arr=[];
+    //     for(i=0;i<val.length;i++)
+    //     {   
+    //         clickbut=val.checked;
+    //         if (clickbut==true)
+    //         {
+    //             arr.push(val)
+    //         }
+    //         else{
+    //             continue;
+    //             }
+    //         }
+    //     console.log(arr);
+    // }
+    
+            
+    </script>
+
+
+
+<title> Selected Course List</title>
+
+<head> The courses displayed here are related to your choice
+</head>
+
+
+
+
+
+<body onload="loadCourse()">
+    <div>
+        <h1 id ="hello"></h1>    
+    </div>
+    <div id="container"></div>
+</body>
+
