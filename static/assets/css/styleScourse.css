@@ -1,0 +1,15 @@
+body {
+  vertical-align: middle;
+  border-style: none;
+  background-image: url("../img/header-background.jpg");
+  background-repeat: no-repeat;
+  /* -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;*/
+  background-size: cover;
+}
+
+button {
+  font-size: 30px;
+  background-color: tomato;
+}

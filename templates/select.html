@@ -1,8 +1,15 @@
 <!DOCTYPE html>
 <title>Select the Courses</title>
-<head>
-    Select the Courses you are familiar with
+<head >
+    <h1 style="text-align: center ;font-size: 50px;font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;color: #efb22d;">
+        Select The Courses
+    </h1> 
+    <button id="allCourses"  onclick="openNew()" style="margin-left: 1250px; margin-bottom: 50px; background-color:crimson; color: #efb22d;border-radius: 50%; font-size: 30px;font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;" > All Courses</button>
+    <link rel="stylesheet" href="../static/assets/css/styleSelect.css"/>
+    <!-- <link rel="stylesheet" href="https://fonts/googleapis.com/css?family=Abril+Fatface"/> -->
+
 </head>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 <script type="text/javascript">
@@ -25,39 +32,49 @@
             success: function(data)
             {
                 console.log(data)
+                window.location.assign("/dispList");
             },
 
 
         })
     }
+    function openNew()
+    {
+        window.location.assign("/allCourse");
+    }
 </script>
 <div>
 
-    <body>
-        <label for="course1">Choose a language or a skill you are familiar with</label>
-        <select id=c1 name=course1>
-            <option value="op1">Option1</option>
-            <option value="op2">Option2</option>
-            <option value="op3">Option3</option>
-            <option value="op4">Option4</option>
-        </select>
-        <br>
-        <label for="course2">Choose a language or a skill you are familiar with</label>
-        <select id=c2 name=course2>
-            <option value="op1">Option1</option>
-            <option value="op2">Option2</option>
-            <option value="op3">Option3</option>
-            <option value="op4">Option4</option>
-        </select>
-        <br>
-        <label for="course3">Choose a language or a skill you are familiar with</label>
-        <select id=c3 name=course3>
-            <option value="op1">Option1</option>
-            <option value="op2">Option2</option>
-            <option value="op3">Option3</option>
-            <option value="op4">Option4</option>
-        </select>
-        <br>
-        <button onclick="selectedCoursePass()">Hit</button>
-    </div>
+    <body >
+        <div style="text-align: center ; margin-top: 5%;" >
+
+            <label for="course1" style="color: antiquewhite; font: 1em sans-serif;font-size: xx-large;">Choose a language or a skill you are familiar with</label>
+            <select id=c1 name=course1 style="width:fit-content;margin-top: 0px;margin-left: 0px;color: #f70707;font-size: xx-large; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">
+                <option value="op1">Option1</option>
+                <option value="op2">Option2</option>
+                <option value="op3">Option3</option>
+                <option value="op4">Option4</option>
+            </select>
+            <br>
+            <label for="course2" style="color: antiquewhite;font: 1em sans-serif;font-size: xx-large;align-content: center;">Choose a language or a skill you are familiar with</label>
+            <select id=c2 name=course2 style="width: fit-content;margin-top: 100px;margin-left: 0px;color: #f70707;font-size: xx-large;font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif ;">
+                <option value="op1">Option1</option>
+                <option value="op2">Option2</option>
+                <option value="op3">Option3</option>
+                <option value="op4">Option4</option>
+            </select>
+            <br>
+            
+            <label for="course3" style="color: antiquewhite;font: 1em sans-serif;font-size: xx-large;">Choose a language or a skill you are familiar with</label>
+            <select id=c3 name=course3 style="width:fit-content;margin-top: 100px;margin-left: 0px;color: #f70707;font-size:xx-large;font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">
+                <option value="op1">Option1</option>
+                <option value="op2">Option2</option>
+                <option value="op3">Option3</option>
+                <option value="op4">Option4</option>
+            </select>
+            <br>
+            <button onclick="selectedCoursePass()" style="font-size: xx-large;color: yellow; border-radius: 50%;width: fit-content; background-color: black;margin-top: 7%; font-size: 30px;size: 30px;">Hit</button>
+        </div>
+        </div>
+        
     </body>
