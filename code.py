@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 
 def load_data():
-    df= pd.read_excel(r'C:/Users/janh/Desktop/hackayuva/dataset.xlsx')
+    df= pd.read_excel(r'dataset.xlsx')
     data= df.drop(['S. No.'], axis=1)
     #print(data)
     return data
