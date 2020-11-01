@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="../static/assets/css/styleskilDisp.css">
+
+</head>
+
+
+
+
+
+<body>
+    <h1 style="vertical-align:top;text-align: center;color: goldenrod;font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; font-size: 30px;">Hey GEEK  these are the courses you must complete in order to have more understanding of the selected career oppurtunity and be able to achieve your goals faster and with a clear path!!
+        
+    </h1>
+    {% for item in li%}
+    <div class="container" style="color: honeydew;text-align: center;font-size: 28px;font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;height:100%;">
+        {{item}}
+    </div>
+    {%endfor%}
+</body>

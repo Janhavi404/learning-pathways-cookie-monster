@@ -19,12 +19,13 @@
             type:'POST',
             url:'/dispTime',
             data: JSON.stringify({
-                valPassed:tex,
+                valuePassed:tex,
             }),
             contentType:"application/json",
             success:function(data)
             {
                 console.log(tex);
+                window.location.assign("/dispSkill");
 
             }
 

@@ -1,7 +1,10 @@
 from flask import Flask, render_template, jsonify, request, redirect, url_for
+from code import career, skillset
 import json
 app = Flask(__name__)
 name_inp = ""
+carRet = []
+skiRet = []
 
 
 @app.route('/index', methods=['GET'])
@@ -33,7 +36,10 @@ def loadSelect():
         a = dic[returnedArr['selection1']]
         b = dic[returnedArr['selection2']]
         c = dic[returnedArr['selection3']]
-        print(a, b, c)
+        # print(a, b, c)
+        global carRet
+        carRet = career(a, b, c)
+        # print(carRet)
 
         return redirect('/dispList', code=302)
 
@@ -47,8 +53,7 @@ def loadDispList():
 @app.route('/selList', methods=['GET'])
 def loadselList():
 
-    arrToPass = ["Course1sdfdklfjlkfjdslfkdsjflkdsfjdlkfdsjlf",
-                 "Course2", "Course3", "Course4"]
+    arrToPass = carRet
     # print(arrToPass)
     # print(name_inp)
     data = {
@@ -62,9 +67,12 @@ def loadselList():
 @app.route('/dispTime', methods=['POST'])
 def loadDispTime():
     valPassed = request.get_json()
-    print(valPassed)
+    # print(valPassed['valuePassed'])
+    global skiRet
+    skiRet = skillset(valPassed['valuePassed'])
+    # print(skiRet)
     # function call arg pass name of the course
-    return valPassed  # skillset
+    return redirect('/dispSkill', code=302)  # skillset
 
 
 @app.route('/allCourse', methods=['GET'])
@@ -72,20 +80,29 @@ def loadAllCourse():
     return render_template("allCourse.html")
 
 
-@app.route('/coursesView', methods=['GET'])
-def loadCourseView():
-    courseArr = ["Big Data Analysis",
-                 "Project Management",
-                 " Social Media Management and Digital Marketing"
-                 "Technical Writing"
-                 "Back End Coding Developer"
-                 "Front End Coding Developers"
-                 "Full Stack Developer"
-                 "Cloud Architect"
-                 "DevOps Engineer"
-                 "AI Engineer"]
-    print(courseArr)
-    dataCourse = {
-        "arra": courseArr,
+# @app.route('/coursesView', methods=['GET'])
+# def loadCourseView():
+#     courseArr = ["Big Data Analysis",
+#                  "Project Management",
+#                  " Social Media Management and Digital Marketing"
+#                  "Technical Writing"
+#                  "Back End Coding Developer"
+#                  "Front End Coding Developers"
+#                  "Full Stack Developer"
+#                  "Cloud Architect"
+#                  "DevOps Engineer"
+#                  "AI Engineer"]
+#     print(courseArr)
+#     dataCourse = {
+#         "arra": courseArr,
+#     }
+#     return json.dumps(dataCourse)
+
+@app.route('/dispSkill', methods=['GET'])
+def loadDispSkill():
+    arrPassed = skiRet
+    data = {
+        "arra": arrPassed,
+
     }
-    return json.dumps(dataCourse)
+    return render_template('skilDisp.html', li=skiRet)
